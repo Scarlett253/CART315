@@ -2,30 +2,24 @@ using UnityEngine;
 
 public class ballComp : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public float startingSpeed;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float startingSpeed = 5f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        bool isRight = UnityEngine.Random.value >= 0.5;
-
-        float xVelocity = -1f;
-
-        if (isRight == true)
+        if (rb == null)
         {
-            xVelocity = 1f;
+            rb = GetComponent<Rigidbody2D>();
         }
-
-        float yVelocity = UnityEngine.Random.Range(-1, 1);
-
-        rb.linearVelocity = new Vector2(x:xVelocity * startingSpeed, y:yVelocity * startingSpeed);
-
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        float xDirection = Random.value < 0.5f ? -1f : 1f;
+        float yDirection = Random.Range(-0.75f, 0.75f);
+
+        Vector2 direction = new Vector2(xDirection, yDirection).normalized;
+        rb.linearVelocity = direction * startingSpeed;
+
     }
 }

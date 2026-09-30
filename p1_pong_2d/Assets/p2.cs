@@ -2,29 +2,32 @@ using UnityEngine;
 
 public class p2 : MonoBehaviour
 {
-    public float moveSpeed;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    [SerializeField] private float moveSpeed = 7f;
 
+    private Rigidbody2D rb;
+    private float movement;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        bool isPressingUp = Input.GetKey(KeyCode.UpArrow);
-        bool isPressingDown = Input.GetKey(KeyCode.DownArrow);
+        movement = 0f;
 
-        if (isPressingUp)
+        if (Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(Vector2.up * Time.deltaTime * moveSpeed);
-
+            movement = 1f;
         }
-
-        if (isPressingDown)
+        else if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.Translate(Vector2.down * Time.deltaTime * moveSpeed);
-
+            movement = -1f;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(0f, movement * moveSpeed);
     }
 }
