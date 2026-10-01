@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class ballComp : MonoBehaviour
 {
-    [SerializeField]  Rigidbody2D rb;
-    [SerializeField]  float startingSpeed = 5f;
+    Rigidbody2D rb;
+    float startingSpeed = 5f;
+    public float spinSpeed = 180f;
 
      void Awake()
     {
@@ -21,5 +22,21 @@ public class ballComp : MonoBehaviour
         Vector2 direction = new Vector2(xDirection, yDirection).normalized;
         rb.linearVelocity = direction * startingSpeed;
 
+    }
+
+    void Update()
+    {
+        transform.Rotate(0, 0, spinSpeed * Time.deltaTime);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (Mathf.Abs(rb.linearVelocity.x) < 1f)
+        {
+            float dir = Random.value < 0.5f ? 1f : -1f;
+            rb.linearVelocity = new Vector2(dir * 2f, rb.linearVelocity.y);
+        }
+
+        rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, startingSpeed * 2f);
     }
 }
