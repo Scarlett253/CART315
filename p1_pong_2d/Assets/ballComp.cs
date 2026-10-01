@@ -3,7 +3,7 @@ using UnityEngine;
 public class ballComp : MonoBehaviour
 {
     Rigidbody2D rb;
-    float startingSpeed = 5f;
+    float startingSpeed = 7f;
     public float spinSpeed = 180f;
 
     public scoreManager scoreMgr;
