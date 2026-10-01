@@ -709,8 +709,8 @@ Transform:
   m_GameObject: {fileID: 495833075}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.84, y: 0, z: 0}
-  m_LocalScale: {x: 9.582315, y: 0.25, z: 1}
+  m_LocalPosition: {x: 4.082, y: 0, z: 0}
+  m_LocalScale: {x: 8.066393, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -982,7 +982,7 @@ Transform:
   m_GameObject: {fileID: 854322568}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.76, y: 0, z: 0}
+  m_LocalPosition: {x: 8, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 6.93, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1232,13 +1232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3bc16d7ddcbede44926a56f4df19aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  rb: {fileID: 1271122302}
-  startingSpeed: 5
---- !u!50 &1271122302 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 1257222134037514207, guid: 5fcd88fe6b6de524a9b0e3e0f9bef8a6, type: 3}
-  m_PrefabInstance: {fileID: 1519783305914597519}
-  m_PrefabAsset: {fileID: 0}
+  spinSpeed: 180
 --- !u!1 &1434735858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,8 +1318,8 @@ Transform:
   m_GameObject: {fileID: 1434735858}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.8422, y: 0, z: 0}
-  m_LocalScale: {x: 9.582315, y: 0.25, z: 1}
+  m_LocalPosition: {x: -4.0864, y: 0, z: 0}
+  m_LocalScale: {x: 8.070352, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1644,7 +1638,7 @@ Transform:
   m_GameObject: {fileID: 1854885647}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.76, y: 0, z: 0}
+  m_LocalPosition: {x: -8, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 6.93, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
