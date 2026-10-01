@@ -6,7 +6,6 @@ public class p1 : MonoBehaviour
 
     Rigidbody2D rb;
     float movementX;
-
     float movementY;
 
     void Awake()

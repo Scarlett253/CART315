@@ -6,6 +6,8 @@ public class ballComp : MonoBehaviour
     float startingSpeed = 5f;
     public float spinSpeed = 180f;
 
+    public scoreManager scoreMgr;
+
      void Awake()
     {
         if (rb == null)
@@ -38,5 +40,15 @@ public class ballComp : MonoBehaviour
         }
 
         rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, startingSpeed * 2f);
+
+        //Scoring 
+        if (collision.gameObject.CompareTag("LeftBoundary"))
+        {
+            scoreMgr.Player2Scored();
+        }
+        else if (collision.gameObject.CompareTag("RightBoundary"))
+        {
+            scoreMgr.Player1Scored();
+        }
     }
 }
