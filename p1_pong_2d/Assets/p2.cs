@@ -2,32 +2,29 @@ using UnityEngine;
 
 public class p2 : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 7f;
+    public float moveSpeed = 7f;
 
-    private Rigidbody2D rb;
-    private float movement;
+     Rigidbody2D rb;
+     float movementX;
+     float movementY;
 
-    private void Awake()
+     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+     void Update()
     {
-        movement = 0f;
 
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            movement = 1f;
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            movement = -1f;
-        }
-    }
+        movementX = 0f;
+        movementY = 0f;
 
-    private void FixedUpdate()
-    {
-        rb.linearVelocity = new Vector2(0f, movement * moveSpeed);
+        if (Input.GetKey(KeyCode.UpArrow)) movementY = 1f;
+        if (Input.GetKey(KeyCode.DownArrow)) movementY = -1f;
+        if (Input.GetKey(KeyCode.LeftArrow)) movementX = -1f;
+        if (Input.GetKey(KeyCode.RightArrow)) movementX = 1f;
+
+
+        rb.linearVelocity = new Vector2(movementX * moveSpeed, movementY * moveSpeed);
     }
 }
