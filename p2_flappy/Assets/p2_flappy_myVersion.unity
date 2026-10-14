@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 888500032}
   - component: {fileID: 888500031}
   m_Layer: 0
-  m_Name: objectSpawner
+  m_Name: ObstaclesSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,6 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   objects: {fileID: 4450903328241837917, guid: 2ec7b4b8efd96264e93ae7abd149fdb8, type: 3}
   spawnRate: 2
+  heightOffset: 10
 --- !u!4 &888500032
 Transform:
   m_ObjectHideFlags: 0

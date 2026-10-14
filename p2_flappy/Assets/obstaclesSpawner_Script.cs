@@ -6,6 +6,7 @@ public class objectSpawner_Script : MonoBehaviour
     public GameObject objects;
     public float spawnRate = 2f;
     private float timer = 0f;
+    public float heightOffset = 10f;
 
     void Start()
     {
@@ -14,6 +15,11 @@ public class objectSpawner_Script : MonoBehaviour
 
     private void SpawnObjects()
     {
+        float lowestPoint = transform.position.y - heightOffset;
+        float highestPoint = transform.position.y + heightOffset;
+        float randomY = UnityEngine.Random.Range(lowestPoint, highestPoint);
+        Vector3 spawnPosition = new Vector3(transform.position.x, randomY, transform.position.z);
+
         Instantiate(objects, transform.position, transform.rotation);
     }
 

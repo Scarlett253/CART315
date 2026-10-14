@@ -4,6 +4,7 @@ public class Obstacles_Script : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float moveSpeed = 10;
+    public float deadZone = -45f;
  
     void Start()
     {
@@ -14,5 +15,9 @@ public class Obstacles_Script : MonoBehaviour
     void Update()
     {
         transform.position = transform.position + Vector3.left * moveSpeed * Time.deltaTime;
+        if (transform.position.x < deadZone)
+        {
+            Destroy(gameObject);
+        }
     }
 }
