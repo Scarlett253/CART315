@@ -1,26 +1,26 @@
 using UnityEngine;
 
-public class objectSpawner_Script : MonoBehaviour
+public class obstaclesSpawner_Script : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public GameObject objects;
-    public float spawnRate = 2f;
+    public GameObject obstacles;
+    public float spawnRate = 3f;
     private float timer = 0f;
-    public float heightOffset = 10f;
+    public float heightOffset = 5f;
 
     void Start()
     {
-        SpawnObjects(); 
+        SpawnObstacles(); 
     }
 
-    private void SpawnObjects()
+    private void SpawnObstacles()
     {
         float lowestPoint = transform.position.y - heightOffset;
         float highestPoint = transform.position.y + heightOffset;
         float randomY = UnityEngine.Random.Range(lowestPoint, highestPoint);
         Vector3 spawnPosition = new Vector3(transform.position.x, randomY, transform.position.z);
 
-        Instantiate(objects, transform.position, transform.rotation);
+        Instantiate(obstacles, spawnPosition, transform.rotation);
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class objectSpawner_Script : MonoBehaviour
         }
         else
         {
-            SpawnObjects();
+            SpawnObstacles();
             timer = 0;
         }
     }

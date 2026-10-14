@@ -4,7 +4,7 @@ public class Obstacles_Script : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float moveSpeed = 10;
-    public float deadZone = -45f;
+    public float deadZone = -15f;
  
     void Start()
     {
