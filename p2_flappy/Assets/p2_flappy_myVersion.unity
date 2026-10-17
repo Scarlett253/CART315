@@ -119,6 +119,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &286737241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4450903328241837917, guid: 2ec7b4b8efd96264e93ae7abd149fdb8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3873459963732515503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &286737244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286737241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f7337f71cedd749b8342654d0b16c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Obstacles_Script
+  moveSpeed: 10
+  deadZone: 12
 --- !u!1 &869780811
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,10 +519,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3038402869348746968, guid: 2ec7b4b8efd96264e93ae7abd149fdb8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4450903328241837917, guid: 2ec7b4b8efd96264e93ae7abd149fdb8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 286737244}
   m_SourcePrefab: {fileID: 100100000, guid: 2ec7b4b8efd96264e93ae7abd149fdb8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
