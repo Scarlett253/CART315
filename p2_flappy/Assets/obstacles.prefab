@@ -155,7 +155,7 @@ MonoBehaviour:
   moveSpeed: 10
   deadZone: -40
   isTop: 0
-  gapSize: 3
+  gapSize: 5
   minGap: 0.5
   openCloseSpeed: 2
 --- !u!1 &4023437808226076765
@@ -313,7 +313,7 @@ MonoBehaviour:
   moveSpeed: 10
   deadZone: -40
   isTop: 1
-  gapSize: 3
+  gapSize: 5
   minGap: 0.5
   openCloseSpeed: 2
 --- !u!1 &4450903328241837917
