@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3750576494277424601}
   - component: {fileID: 2368614738584833748}
   - component: {fileID: 8506292978944619584}
+  - component: {fileID: 98740613644435986}
   m_Layer: 0
   m_Name: broom
   m_TagString: Untagged
@@ -139,6 +140,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.14, y: 6.28}
   m_EdgeRadius: 0
+--- !u!114 &98740613644435986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100133329639182859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0504fa933424f429da6c833a77d472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GapObstacle_Script
+  moveSpeed: 10
+  deadZone: -12
+  isTop: 0
+  gapSize: 3
+  minGap: 0.5
+  openCloseSpeed: 2
 --- !u!1 &4023437808226076765
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +310,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0504fa933424f429da6c833a77d472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  moveSpeed: 10
+  deadZone: -12
+  isTop: 1
+  gapSize: 3
+  minGap: 0.5
+  openCloseSpeed: 2
 --- !u!1 &4450903328241837917
 GameObject:
   m_ObjectHideFlags: 0

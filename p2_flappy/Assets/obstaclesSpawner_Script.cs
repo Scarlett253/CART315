@@ -32,7 +32,7 @@ public class obstaclesSpawner_Script : MonoBehaviour
         GameObject top = Instantiate(topObstacle, basePos, transform.rotation);
         GameObject bottom = Instantiate(bottomObstacle, basePos, transform.rotation);
 
-        float phase = Random.Rage(0f, Mathf.PI * 2f);
+        float phase = Random.Range(0f, Mathf.PI * 2f);
 
         top.GetComponent<GapObstacle_Script>().Setup(randomY, phase);
         bottom.GetComponent<GapObstacle_Script>().Setup(randomY, phase);

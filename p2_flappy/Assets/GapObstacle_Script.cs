@@ -11,8 +11,8 @@ public class GapObstacle_Script : MonoBehaviour
 
     [Header("OpenClose")]
     public bool isTop = true;
-    public float gapSize = 3f;
-    public float minGap = 0.5f;
+    public float gapSize = 3.5f;
+    public float minGap = 1.5f;
 
     //speed of the movement
     public float openCloseSpeed = 2f;
