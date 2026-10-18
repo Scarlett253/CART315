@@ -2,13 +2,21 @@ using UnityEngine;
 
 public class obstaclesSpawner_Script : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public GameObject obstacles;
+    //make the obstacles appear
     public float spawnRate = 2f;
+
+    //limits
     public float minY = -3f;
     public float maxY = 3f;
+
+    //Prefabs open/close
+    public GameObject topObstacle;
+    public GameObject bottomObstacle;
+
+    //lapses between spawns
     private float timer = 0f;
-    //public float heightOffset = 5f;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
     {
@@ -17,17 +25,18 @@ public class obstaclesSpawner_Script : MonoBehaviour
 
     private void SpawnObstacles()
     {
-        //float lowestPoint = transform.position.y - heightOffset;
-        //float highestPoint = transform.position.y + heightOffset;
-        //float randomY = UnityEngine.Random.Range(lowestPoint, highestPoint);
-        //Vector3 spawnPosition = new Vector3(transform.position.x, randomY, transform.position.z);
-
-        //Instantiate(obstacles, spawnPosition, transform.rotation);
-
+       
         float randomY = Random.Range(minY, maxY);
-        Vector3 spawnPosition = new Vector3(transform.position.x, randomY, transform.position.z);
+        Vector3 basePos = new Vector3(transform.position.x, randomY, transform.position.z);
 
-        Instantiate(obstacles, spawnPosition, transform.rotation);
+        GameObject top = Instantiate(topObstacle, basePos, transform.rotation);
+        GameObject bottom = Instantiate(bottomObstacle, basePos, transform.rotation);
+
+        float phase = Random.Rage(0f, Mathf.PI * 2f);
+
+        top.GetComponent<GapObstacle_Script>().Setup(randomY, phase);
+        bottom.GetComponent<GapObstacle_Script>().Setup(randomY, phase);
+
     }
 
     // Update is called once per frame
