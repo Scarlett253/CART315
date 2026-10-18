@@ -150,7 +150,6 @@ GameObject:
   - component: {fileID: 7601866300981048174}
   - component: {fileID: 6077373090105111447}
   - component: {fileID: 6403965111828777888}
-  - component: {fileID: 1512079783408169468}
   m_Layer: 0
   m_Name: vacuum
   m_TagString: Untagged
@@ -279,18 +278,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.78, y: 8.78}
   m_EdgeRadius: 0
---- !u!114 &1512079783408169468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4023437808226076765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf0504fa933424f429da6c833a77d472, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &4450903328241837917
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,3 +324,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0504fa933424f429da6c833a77d472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GapObstacle_Script
+  moveSpeed: 10
+  deadZone: -40
+  isTop: 1
+  gapSize: 3
+  minGap: 0.5
+  openCloseSpeed: 2

@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GapObstacle_Script
   moveSpeed: 10
-  deadZone: -12
+  deadZone: -40
   isTop: 0
   gapSize: 3
   minGap: 0.5
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 10
-  deadZone: -12
+  deadZone: -40
   isTop: 1
   gapSize: 3
   minGap: 0.5
@@ -363,4 +363,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacles_Script
   moveSpeed: 10
-  deadZone: -15
+  deadZone: -40

@@ -27,12 +27,13 @@ public class obstaclesSpawner_Script : MonoBehaviour
     {
        
         float randomY = Random.Range(minY, maxY);
-        Vector3 basePos = new Vector3(transform.position.x, randomY, transform.position.z);
-
-        GameObject top = Instantiate(topObstacle, basePos, transform.rotation);
-        GameObject bottom = Instantiate(bottomObstacle, basePos, transform.rotation);
-
         float phase = Random.Range(0f, Mathf.PI * 2f);
+
+        Vector3 topPos = new Vector3(transform.position.x, randomY + 1.5f, transform.position.z);
+        Vector3 bottomPos = new Vector3(transform.position.x, randomY - 1.5f, transform.position.z);
+
+        GameObject top = Instantiate(topObstacle, topPos, transform.rotation);
+        GameObject bottom = Instantiate(bottomObstacle, bottomPos, transform.rotation);
 
         top.GetComponent<GapObstacle_Script>().Setup(randomY, phase);
         bottom.GetComponent<GapObstacle_Script>().Setup(randomY, phase);

@@ -291,6 +291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0504fa933424f429da6c833a77d472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  moveSpeed: 10
+  deadZone: -12
+  isTop: 1
+  gapSize: 3
+  minGap: 0.5
+  openCloseSpeed: 2
 --- !u!1 &4450903328241837917
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,3 +343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0504fa933424f429da6c833a77d472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GapObstacle_Script
+  moveSpeed: 10
+  deadZone: -40
+  isTop: 1
+  gapSize: 3
+  minGap: 0.5
+  openCloseSpeed: 2

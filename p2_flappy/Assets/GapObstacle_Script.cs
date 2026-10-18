@@ -6,13 +6,13 @@ public class GapObstacle_Script : MonoBehaviour
     public float moveSpeed = 10f;
 
     //limits
-    public float deadZone = -12f;
+    public float deadZone = -40f;
 
 
     [Header("OpenClose")]
     public bool isTop = true;
-    public float gapSize = 3.5f;
-    public float minGap = 1.5f;
+    public float gapSize = 4f;
+    public float minGap = 2f;
 
     //speed of the movement
     public float openCloseSpeed = 2f;
@@ -28,7 +28,7 @@ public class GapObstacle_Script : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (centerY == 0f) centerY = transform.position.y;
     }
 
     // Update is called once per frame
