@@ -1,28 +1,56 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class Spawner_Script : MonoBehaviour
 {
-    public Pipes prefab;
-    public float spawnRate = 1f;
-    public float minHeight = -1f;
-    public float maxHeight = 2f;
-    public float verticalGap = 3f;
+    //make the obstacles appear
+    public float spawnRate = 2f;
 
-    private void OnEnable()
+    //limits
+    public float minY = -3f;
+    public float maxY = 3f;
+
+    //Prefabs open/close
+    public GameObject topObstacle;
+    public GameObject bottomObstacle;
+
+    //lapses between spawns
+    private float timer = 0f;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    void Start()
     {
-        InvokeRepeating(nameof(Spawn), spawnRate, spawnRate);
+        SpawnObstacles(); 
     }
 
-    private void OnDisable()
+    private void SpawnObstacles()
     {
-        CancelInvoke(nameof(Spawn));
+       
+        float randomY = Random.Range(minY, maxY);
+        float phase = Random.Range(0f, Mathf.PI * 2f);
+
+        Vector3 topPos = new Vector3(transform.position.x, randomY + 1.5f, transform.position.z);
+        Vector3 bottomPos = new Vector3(transform.position.x, randomY - 1.5f, transform.position.z);
+
+        GameObject top = Instantiate(topObstacle, topPos, transform.rotation);
+        GameObject bottom = Instantiate(bottomObstacle, bottomPos, transform.rotation);
+
+        top.GetComponent<GapObstacle_Script>().Setup(randomY, phase);
+        bottom.GetComponent<GapObstacle_Script>().Setup(randomY, phase);
+
     }
 
-    private void Spawn()
+    // Update is called once per frame
+    void Update()
     {
-        Pipes pipes = Instantiate(prefab, transform.position, Quaternion.identity);
-        pipes.transform.position += Vector3.up * Random.Range(minHeight, maxHeight);
-        pipes.gap = verticalGap;
+        if (timer < spawnRate)
+        {
+            timer += Time.deltaTime;
+        }
+        else
+        {
+            SpawnObstacles();
+            timer = 0;
+        }
     }
-
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Player player;
     [SerializeField] private Spawner spawner;
-    [SerializeField] private Text scoreText;
+    [SerializeField] private TMP_Text scoreText;
     [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject gameOver;
 
@@ -77,15 +78,15 @@ public class GameManager : MonoBehaviour
     {
         if (player.transform.position.y < fallLimit)
         {
-            OnBambiFell("Bambi fell of the kitchen");
+            OnPlayerFell("Bambi fell of the kitchen");
         }
         else if (player.transform.position.x < pushBackLimit)
         {
-            OnBambiFell("Bambi was pushed out of the kitchen");
+            OnPlayerFell("Bambi was pushed out of the kitchen");
         }
     }
 
-    private void OnBambiFell(string reason)
+    private void OnPlayerFell(string reason)
     {
         Debug.Log("GAME OVER: " + reason);
         GameOver();
@@ -108,7 +109,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         player.enabled = true;
 
-        Obstacles[] obstacles = FindObjectsByType<Obstacles>(FindObjectsSortMode.None);
+        GapObstacle_Script[] obstacles = FindObjectsByType<GapObstacle_Script>(FindObjectsSortMode.None);
 
         for (int i = 0; i < obstacles.Length; i++)
         {
