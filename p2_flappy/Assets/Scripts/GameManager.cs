@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject gameOver;
 
+    //limits to be Game Over
+    public float fallLimit = -6f;
+    public float pushBackLimit = -40f;
+
     public int score { get; private set; } = 0;
 
     private void Awake()
@@ -35,6 +39,58 @@ public class GameManager : MonoBehaviour
         Pause();
     }
 
+    private void Update()
+    {
+        //Pause
+        if (Time.timeScale == 0f) return;
+
+        CheckDeath();
+        CheckScore();
+
+    }
+
+    //Scoring
+    private void CheckScore()
+    {
+        float playerX = player.transform.position.x;
+
+        GameObject[] tops = GameObject.FindGameObjectsWithTag("ObsTop");
+        foreach (GameObject top in tops)
+        {
+            if (top.transform.position.x < playerX)
+            {
+                ScoreMarker marker = top.GetComponent<ScoreMarker>();
+                if (marker == null)
+                {
+                    top.AddComponent<ScoreMarker>();
+                    IncreaseScore();
+                }
+
+            }
+        }
+
+
+    }
+
+    //Game Over
+    private void CheckDeath()
+    {
+        if (player.transform.position.y < fallLimit)
+        {
+            OnBambiFell("Bambi fell of the kitchen");
+        }
+        else if (player.transform.position.x < pushBackLimit)
+        {
+            OnBambiFell("Bambi was pushed out of the kitchen");
+        }
+    }
+
+    private void OnBambiFell(string reason)
+    {
+        Debug.Log("GAME OVER: " + reason);
+        GameOver();
+    }
+
     public void Pause()
     {
         Time.timeScale = 0f;
@@ -52,10 +108,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         player.enabled = true;
 
-        Pipes[] pipes = FindObjectsByType<Pipes>(FindObjectsSortMode.None);
+        Obstacles[] obstacles = FindObjectsByType<Obstacles>(FindObjectsSortMode.None);
 
-        for (int i = 0; i < pipes.Length; i++) {
-            Destroy(pipes[i].gameObject);
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            Destroy(obstacles[i].gameObject);
         }
     }
 
@@ -72,5 +129,5 @@ public class GameManager : MonoBehaviour
         score++;
         scoreText.text = score.ToString();
     }
-
+ 
 }
