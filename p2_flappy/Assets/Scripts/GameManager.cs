@@ -10,9 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private Spawner spawner;
     [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private TMP_Text reasonText;
+    [SerializeField] private GameObject getReady;
     [SerializeField] private GameObject playButton;
+    [SerializeField] private TMP_Text reasonText;
     [SerializeField] private GameObject gameOver;
+    [SerializeField] private AudioSource scoreSound;
+    [SerializeField] private AudioSource gameOverSound;
 
     //limits to be Game Over
     public float fallLimit = -6f;
@@ -43,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         Pause();
         gameOver.SetActive(false);
+        getReady.SetActive(true);
         playButton.SetActive(true);
         player.gameObject.SetActive(false);
     }
@@ -125,6 +129,7 @@ public class GameManager : MonoBehaviour
         player.transform.position = new Vector3(0f, 0f, 0f);
         player.my_Player_Rigidbody.linearVelocity = Vector2.zero;
 
+        getReady.SetActive(false);
         playButton.SetActive(false);
         gameOver.SetActive(false);
 
@@ -143,6 +148,7 @@ public class GameManager : MonoBehaviour
     {
         gameStarted = false;
         gameOver.SetActive(true);
+        gameOverSound.Play();
 
         Pause();
     }
@@ -151,6 +157,7 @@ public class GameManager : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
+        scoreSound.Play();
     }
  
 }
