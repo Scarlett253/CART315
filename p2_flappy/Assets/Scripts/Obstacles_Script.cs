@@ -7,7 +7,7 @@ public class Obstacles_Script : MonoBehaviour
     //speed
     public float moveSpeed = 10f;
     //limit
-    public float deadZone = -40f;
+    public float deadZone = -30f;
  
     void Start()
     {

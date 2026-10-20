@@ -6,7 +6,7 @@ public class GapObstacle_Script : MonoBehaviour
     public float moveSpeed = 10f;
 
     //limits
-    public float deadZone = -40f;
+    public float deadZone = -30f;
 
 
     [Header("OpenClose")]

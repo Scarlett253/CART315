@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Spawner_Script : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     //make the obstacles appear
     public float spawnRate = 2f;

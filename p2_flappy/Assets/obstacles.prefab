@@ -363,4 +363,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacles_Script
   moveSpeed: 10
-  deadZone: -40
+  deadZone: -30

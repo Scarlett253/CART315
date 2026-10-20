@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GapObstacle_Script
   moveSpeed: 10
-  deadZone: -40
+  deadZone: -30
   isTop: 1
   gapSize: 5
   minGap: 0.5
