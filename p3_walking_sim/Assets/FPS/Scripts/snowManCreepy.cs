@@ -61,7 +61,7 @@ public class snowManCreepy : MonoBehaviour
     {
         if (player == null) return;
 
-        //the snowman chase you if u r not looking at him
+        //the snowman chase you if u r not looking at him (and spawns from nowhere)
         agent.SetDestination(player.position);
 
         timer -= Time.deltaTime;
