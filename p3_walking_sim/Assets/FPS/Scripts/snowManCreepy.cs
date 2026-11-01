@@ -41,31 +41,50 @@
 //New Script For the Snowman To Follow The Player
 
 using UnityEngine;
+using UnityEngine.AI;
 
 public class snowManCreepy : MonoBehaviour
 {
     public Transform player;
-    public float chaseSpeed = 8f;
+    public float teleportDistance = 8f;
     public float checkInterval = 0.2f;
 
+    private NavMeshAgent agent;
     private float timer;
+
+    void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
 
     void Update()
     {
+        if (player == null) return;
 
         //the snowman chase you if u r not looking at him
+        agent.SetDestination(player.position);
 
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
             timer = checkInterval;
-
-            
-            if (!IsBeingLookedAt())
+            if (IsBeingLookedAt())
             {
-                ChasePlayer();
+                TeleportBehindPlayer();
             }
         }
+
+        //timer -= Time.deltaTime;
+        //if (timer <= 0f)
+        //{
+        //    timer = checkInterval;
+
+            
+        //    if (!IsBeingLookedAt())
+        //    {
+        //        ChasePlayer();
+        //    }
+        //}
     }
 
     bool IsBeingLookedAt()
@@ -75,16 +94,28 @@ public class snowManCreepy : MonoBehaviour
         return dot > 0.8f;
     }
 
-    void ChasePlayer()
+    void TeleportBehindPlayer()
     {
-        //turns towards the player
-        Vector3 lookDir = player.position - transform.position;
-        lookDir.x = 0;
-        transform.rotation = Quaternion.LookRotation(lookDir);
+        Vector3 behind = player.position - player.forward * teleportDistance;
+        behind.y = transform.position.y;
 
-        //go towards player
-        Vector3 direction = (player.position - transform.position).normalized;
-        transform.position += direction * chaseSpeed * Time.deltaTime;
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(behind, out hit, 3f, NavMesh.AllAreas))
+        {
+            agent.Warp(hit.position);
+        }
     }
+
+    //void ChasePlayer()
+    //{
+    //    //turns towards the player
+    //    Vector3 lookDir = player.position - transform.position;
+    //    lookDir.x = 0;
+    //    transform.rotation = Quaternion.LookRotation(lookDir);
+
+    //    //go towards player
+    //    Vector3 direction = (player.position - transform.position).normalized;
+    //    transform.position += direction * chaseSpeed * Time.deltaTime;
+    //}
 }
 
